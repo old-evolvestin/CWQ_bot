@@ -19,7 +19,7 @@ scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/au
 creds1 = ServiceAccountCredentials.from_json_keyfile_name('trigger1.json', scope)
 client1 = gspread.authorize(creds1)
 sheet1 = client1.open('Trigger').worksheet('main')
-tkn = '587974580:AAFGcUwspPdr2pU44nJqLD-ps9FxSwUJ6mg'
+tkn = '668328818:AAGfbZ4Yi0DWvxH5UkLU5H9w5id6GAjthJQ'
 bot = telebot.TeleBot(tkn)
 
 g_trigger1 = []
