@@ -1,1 +1,1 @@
-worker: python supp2.py
+worker: python trigg.py
