@@ -13,14 +13,14 @@ import datetime
 from datetime import datetime
 import _thread
 import random
+import tkn
 
 # ======================================================================================================================
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 creds1 = ServiceAccountCredentials.from_json_keyfile_name('trigger1.json', scope)
 client1 = gspread.authorize(creds1)
 sheet1 = client1.open('Trigger').worksheet('main')
-tkn = '668328818:AAGfbZ4Yi0DWvxH5UkLU5H9w5id6GAjthJQ'
-bot = telebot.TeleBot(tkn)
+bot = telebot.TeleBot(tkn.tkn)
 
 idMe = 396978030
 
@@ -52,10 +52,10 @@ def sprite():
         g_trigger4 = sheet1.col_values(4)
         RAW_g_trigger5 = sheet1.col_values(5)
     trigger_list1.pop(0)
-    g_trigger2.pop(0)
+    RAW_g_trigger2.pop(0)
     trigger_list3.pop(0)
     g_trigger4.pop(0)
-    g_trigger5.pop(0)
+    RAW_g_trigger5.pop(0)
     for t1 in trigger_list1:
         g_trigger1.append(t1.lower().strip())
     for t3 in trigger_list3:
