@@ -83,6 +83,13 @@ def handle_id_command(message):
         bot.send_message(message.chat.id, "ID этой группы: " + str(message.chat.id))
 
 
+@bot.message_handler(commands=['update'])
+def handle_id_command(message):
+    if message.chat.id == idMe or message.chat.id == 343663939:
+        sprite()
+        bot.send_message(message.chat.id, 'Обновлено')
+
+
 @bot.message_handler(content_types=['photo'])
 def redmessages(message):
     if message.chat.id == idMe or message.chat.id == 343663939:
@@ -121,15 +128,6 @@ def repeat_all_messages(message):
             bot.send_message(message.chat.id, text)
     else:
         bot.send_message(message.chat.id, 'Я такого не знаю')
-
-
-def google():
-    while True:
-        try:
-            sleep(10)
-            sprite()
-        except Exception as e:
-            sleep(0.9)
 
 
 def telepol():
