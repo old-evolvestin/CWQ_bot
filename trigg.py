@@ -1,26 +1,29 @@
 # -*- coding: utf-8 -*-
 
+import os
 import gspread
-from oauth2client.service_account import ServiceAccountCredentials
 import telebot
-from telebot import types
-import urllib3
-import re
-import requests
-import time
 from time import sleep
-import datetime
 from datetime import datetime
-import _thread
-import random
-import tkn
+from oauth2client.service_account import ServiceAccountCredentials
 
+
+def environmental_files():
+    directory = os.listdir('.')
+    for key in os.environ.keys():
+        if key.endswith('.json') and key not in directory:
+            file = open(key, 'w')
+            file.write(os.environ.get(key))
+            file.close()
+
+
+environmental_files()
 # ======================================================================================================================
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 creds1 = ServiceAccountCredentials.from_json_keyfile_name('trigger1.json', scope)
 client1 = gspread.authorize(creds1)
 sheet1 = client1.open('Trigger').worksheet('main')
-bot = telebot.TeleBot(tkn.tkn)
+bot = telebot.TeleBot(os.environ['TOKEN'])
 
 idMe = 396978030
 idCh = -1001153670526
