@@ -135,7 +135,6 @@ def sprite():
 
 
 sprite()
-bot.send_message(idMe, '🤤')
 
 
 @bot.message_handler(commands=['id'])
